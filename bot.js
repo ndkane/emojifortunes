@@ -6,16 +6,9 @@ var Bot = new TwitterBot({
  access_token: process.env.BOT_ACCESS_TOKEN,
  access_token_secret: process.env.BOT_ACCESS_TOKEN_SECRET
 });
-var phraseArray = [ "hey twitter",
-                    "im tweeting",
-                    "tweet tweet",
-                    "tweetstorm time... 1/22",
-                    "plz RT v important",
-                    "delete ur account",
-                    "it me",
-                    "same",
-                    "#dogpants go on 4 legs!!",
-                    "#thedress is blue and black" ];
+var phraseArray = [ "Tweet me your last ten emojis to see into your future...",
+                    "10 emojis is all I need...",
+                    "Cross my palm with emojis to see into the future..." ];
 function chooseRandom(myArray) {
   return myArray[Math.floor(Math.random() * myArray.length)];
 }
