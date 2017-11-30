@@ -14,3 +14,12 @@ function chooseRandom(myArray) {
 }
 var phrase = chooseRandom(phraseArray) + ", " + chooseRandom(phraseArray);
 Bot.tweet(phrase);
+
+setInterval(function() {
+  try {
+    run();
+  }
+  catch (e) {
+    console.log(e);
+  }
+}, 5000* 60);
