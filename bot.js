@@ -8,30 +8,19 @@ var Bot = new TwitterBot({
 });
 
 //Setting up a user stream
-var stream = Bot,stream('user');
+var stream = Bot.stream('user');
 
-// Anytime someone follows me
-stream.on('follow', followed);
-
+//Anytime someone replies
+stream.on('tweet', tweetEvent)
 
 // Tweet at intervals of every five minutes
 
-tweetIt();
-setInterval(tweetIt, 1000*60*5);
+//tweetIt();
+//setInterval(tweetIt, 1000*60*5);
 
-function tweetIt(){
-
-    var phraseArray = ["Tweet me your last ten emojis to see into your future...",
-        "10 emojis is all I need...",
-        "Cross my palm with emojis to see into the future...",
-        "Cross my palm with emojis to see what you need to do...",
-        "Emoji, emoji, what do they mean?"
-    ];
-
-    function chooseRandom(myArray) {
-        return myArray[Math.floor(Math.random() * myArray.length)];
-    }
-    var phrase = chooseRandom(phraseArray);
-    Bot.tweet(phrase);
+function tweetEvent(eventMsg){
+    var fs = require('fs');
+    var json = JSON.stringify(tweet,null,2);
+    fs.writeFile("tweet.json", json);
 }
 
