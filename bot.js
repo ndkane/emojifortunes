@@ -7,6 +7,15 @@ var Bot = new TwitterBot({
     access_token_secret: process.env.BOT_ACCESS_TOKEN_SECRET
 });
 
+//Setting up a user stream
+var stream = Bot,stream('user');
+
+// Anytime someone follows me
+stream.on('follow', followed);
+
+
+// Tweet at intervals of every five minutes
+
 tweetIt();
 setInterval(tweetIt, 1000*60*5);
 
