@@ -24,7 +24,7 @@ setInterval(function() {
     } catch (e) {
         console.log(e);
     }
-}, 10000 * 60);
+}, 5000 * 60);
 
 // reply whenever another account tweets to this account
 var stream = T.stream('user');
